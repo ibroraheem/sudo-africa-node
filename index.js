@@ -368,6 +368,79 @@ class SudoAfrica {
         }
     }
 
+    async getCardAuthorizations(page = 0, limit = 100, fromDate, toDate) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/authorizations?page=${page}&limit=${limit}&fromDate=${fromDate}&toDate=${toDate}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to fetch card authorizations: ${error.message}`);
+        }
+    }
+
+    async getCardSpecificAuthorizations(cardId, page = 0, limit = 100, fromDate, toDate) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/${cardId}/authorizations?page=${page}&limit=${limit}&fromDate=${fromDate}&toDate=${toDate}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to fetch authorizations for card ${cardId}: ${error.message}`);
+        }
+    }
+
+    async getAuthorizationByAuthorizationId(authorizationId) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/authorizations/${authorizationId}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to fetch authorization by id ${authorizationId}: ${error.message}`);
+        }
+    }
+
+    async updateAuthorizationMetadata(authorizationId, metadata) {
+        const options = {
+            method: 'PUT',
+            url: `${this.baseUrl}/cards/authorizations/${authorizationId}`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: { metadata }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to update authorization metadata for id ${authorizationId}: ${error.message}`);
+        }
+    }
 }
 module.exports = SudoAfrica
 
