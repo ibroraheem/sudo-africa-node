@@ -504,6 +504,64 @@ class SudoAfrica {
             throw new Error(`Failed to update dispute: ${error.message}`);
         }
     }
+
+    async listTransactions(page = 0, limit = 100, fromDate, toDate) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/transactions?page=${page}&limit=${limit}&fromDate=${fromDate}&toDate=${toDate}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to list transactions: ${error.message}`);
+        }
+    }
+
+    async getTransactionById(transactionId) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/transactions/${transactionId}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to get transaction by ID: ${error.message}`);
+        }
+    }
+
+    async updateTransaction(transactionId, updateData) {
+        const options = {
+            method: 'PUT',
+            url: `${this.baseUrl}/cards/transactions/${transactionId}`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: updateData
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to update transaction: ${error.message}`);
+        }
+    }
+
+    
 }
 module.exports = SudoAfrica
 
