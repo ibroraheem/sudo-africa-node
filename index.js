@@ -1,20 +1,21 @@
-const axios = require('axios')
+const axios = require("axios");
 
 class SudoAfrica {
     constructor(apiKey, baseUrl) {
         this.apiKey = apiKey;
         this.baseUrl = baseUrl;
     }
+
     async createCustomer(data) {
         const options = {
-            method: 'POST',
+            method: "POST",
             url: `${this.baseUrl}/customers`,
             headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-                Authorization: `Bearer ${this.apiToken}`
+                accept: "application/json",
+                "content-type": "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
             },
-            data
+            data,
         };
 
         try {
@@ -26,12 +27,12 @@ class SudoAfrica {
     }
     async getCustomers(page = 0, limit = 100) {
         const options = {
-            method: 'GET',
+            method: "GET",
             url: `${this.baseUrl}/customers?page=${page}&limit=${limit}`,
             headers: {
-                accept: 'application/json',
-                Authorization: `Bearer ${this.apiToken}`
-            }
+                accept: "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
+            },
         };
 
         try {
@@ -43,12 +44,12 @@ class SudoAfrica {
     }
     async getCustomerById(customerId) {
         const options = {
-            method: 'GET',
+            method: "GET",
             url: `${this.baseUrl}/customers/${customerId}`,
             headers: {
-                accept: 'application/json',
-                Authorization: `Bearer ${this.apiToken}`
-            }
+                accept: "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
+            },
         };
 
         try {
@@ -60,14 +61,14 @@ class SudoAfrica {
     }
     async updateCustomer(customerId, customerData) {
         const options = {
-            method: 'PUT',
+            method: "PUT",
             url: `${this.baseUrl}/customers/${customerId}`,
             headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-                Authorization: `Bearer ${this.apiToken}`
+                accept: "application/json",
+                "content-type": "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
             },
-            data: customerData
+            data: customerData,
         };
 
         try {
@@ -79,24 +80,105 @@ class SudoAfrica {
     }
     async updateCustomerDocumentUrl(customerId, fileName, fileType) {
         const options = {
-            method: 'PUT',
+            method: "PUT",
             url: `${this.baseUrl}/customers/${customerId}/documents/url`,
             headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-                Authorization: `Bearer ${this.apiToken}`
+                accept: "application/json",
+                "content-type": "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
             },
             data: {
                 fileName: fileName,
-                fileType: fileType
-            }
+                fileType: fileType,
+            },
         };
 
         try {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
-            throw new Error(`Failed to update customer document URL: ${error.message}`);
+            throw new Error(
+                `Failed to update customer document URL: ${error.message}`
+            );
+        }
+    }
+
+    async createFundingSource(type, status) {
+        const axios = require("axios");
+
+        const options = {
+            method: "POST",
+            url: `${this.baseUrl}/fundingsources`,
+            headers: {
+                accept: "application/json",
+                "content-type": "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
+            },
+            data: { type, status },
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to create funding source: ${error.message}`);
+        }
+    }
+    async getFundingSources() {
+        const axios = require("axios");
+
+        const options = {
+            method: "GET",
+            url: `${this.baseUrl}/fundingsources`,
+            headers: {
+                accept: "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
+            },
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to create funding source: ${error.message}`);
+        }
+    }
+    async getFundingSource(id) {
+        const axios = require("axios");
+
+        const options = {
+            method: "GET",
+            url: `${this.baseUrl}/fundingsources/${id}`,
+            headers: {
+                accept: "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
+            },
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to create funding source: ${error.message}`);
+        }
+    }
+    async getFundingSource(id, status) {
+        const axios = require("axios");
+
+        const options = {
+            method: "PUT",
+            url: `${this.baseUrl}/fundingsources/${id}`,
+            headers: {
+                accept: "application/json",
+                Authorization: `Bearer ${this.apiToken}`,
+            },
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to create funding source: ${error.message}`);
         }
     }
     async createCard(data) {
@@ -286,6 +368,7 @@ class SudoAfrica {
         }
     }
 
-
 }
 module.exports = SudoAfrica
+
+
