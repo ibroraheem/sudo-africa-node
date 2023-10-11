@@ -441,6 +441,69 @@ class SudoAfrica {
             throw new Error(`Failed to update authorization metadata for id ${authorizationId}: ${error.message}`);
         }
     }
+
+    async createDispute(reason, transactionId, explanation, metadata = {}) {
+        const options = {
+            method: 'POST',
+            url: `${this.baseUrl}/cards/disputes`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: {
+                reason,
+                metadata,
+                transactionId,
+                explanation
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to create dispute: ${error.message}`);
+        }
+    }
+
+    async getDisputes(page = 0, limit = 100) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/disputes?page=${page}&limit=${limit}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to fetch disputes: ${error.message}`);
+        }
+    }
+
+    async updateDispute(disputeId, updateData) {
+        const options = {
+            method: 'PUT',
+            url: `${this.baseUrl}/cards/disputes/${disputeId}`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: updateData
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to update dispute: ${error.message}`);
+        }
+    }
 }
 module.exports = SudoAfrica
 
