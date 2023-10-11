@@ -99,7 +99,193 @@ class SudoAfrica {
             throw new Error(`Failed to update customer document URL: ${error.message}`);
         }
     }
-    
-}
+    async createCard(data) {
+        const options = {
+            method: 'POST',
+            url: `${this.baseUrl}/cards`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: data
+        };
 
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to create card: ${error.message}`);
+        }
+    }
+
+    async getCards(page = 0, limit = 100) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards?page=${page}&limit=${limit}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to fetch cards: ${error.message}`);
+        }
+    }
+
+    async getCardsByCustomer(customerId, page = 0, limit = 100) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/customer/${customerId}?page=${page}&limit=${limit}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to fetch cards for customer: ${error.message}`);
+        }
+    }
+
+    async getCardById(cardId) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/${cardId}`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to fetch card`)
+        }
+    }
+    async sendDefaultCardPin(cardId) {
+        const options = {
+            method: 'PUT',
+            url: `${this.baseUrl}/cards/${cardId}/send-pin`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to send default card pin`)
+        }
+    }
+
+    async updateCardPin(cardId, oldPin, newPin) {
+        const options = {
+            method: 'PUT',
+            url: `${this.baseUrl}/cards/${cardId}/pin`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: {
+                oldPin: oldPin,
+                newPin: newPin
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to update card PIN: ${error.message}`);
+        }
+    }
+
+    async enrollCard2fa(cardId) {
+        const options = {
+            method: 'PUT',
+            url: `${this.baseUrl}/cards/${cardId}/enroll2fa`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to enroll card in 2FA: ${error.message}`);
+        }
+    }
+
+    async updateCard(cardId, updateData) {
+        const options = {
+            method: 'PUT',
+            url: `${this.baseUrl}/cards/${cardId}`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: updateData
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to update card: ${error.message}`);
+        }
+    }
+
+    async getCardToken(cardId) {
+        const options = {
+            method: 'GET',
+            url: `${this.baseUrl}/cards/${cardId}/token`,
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to get card token: ${error.message}`);
+        }
+    }
+
+    async orderCards(orderData) {
+        const options = {
+            method: 'POST',
+            url: `${this.baseUrl}/cards/order`,
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                Authorization: `Bearer ${this.apiKey}`
+            },
+            data: orderData
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Failed to order cards: ${error.message}`);
+        }
+    }
+
+
+}
 module.exports = SudoAfrica
