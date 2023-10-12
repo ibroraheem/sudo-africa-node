@@ -104,7 +104,6 @@ class SudoAfrica {
     }
 
     async createFundingSource(type, status) {
-        const axios = require("axios");
 
         const options = {
             method: "POST",
@@ -125,8 +124,6 @@ class SudoAfrica {
         }
     }
     async getFundingSources() {
-        const axios = require("axios");
-
         const options = {
             method: "GET",
             url: `${this.baseUrl}/fundingsources`,
@@ -144,8 +141,6 @@ class SudoAfrica {
         }
     }
     async getFundingSource(id) {
-        const axios = require("axios");
-
         const options = {
             method: "GET",
             url: `${this.baseUrl}/fundingsources/${id}`,
@@ -163,8 +158,6 @@ class SudoAfrica {
         }
     }
     async getFundingSource(id, status) {
-        const axios = require("axios");
-
         const options = {
             method: "PUT",
             url: `${this.baseUrl}/fundingsources/${id}`,
@@ -561,7 +554,9 @@ class SudoAfrica {
         }
     }
 
-    
+
+
+
 }
 module.exports = SudoAfrica
 
