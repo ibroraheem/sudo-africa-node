@@ -4,26 +4,25 @@ A comprehensive Node.js SDK tailored for the SudoAfrica API, enabling seamless i
 
 ## Table of Contents
 
-- [SudoAfrica Node SDK ](#sudoafrica-node-sdk-)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Initialization](#initialization)
-  - [API Methods](#api-methods)
-    - [Customers](#customers)
-    - [Cards](#cards)
-    - [Transactions](#transactions)
-  - [Error Handling](#error-handling)
-  - [Examples](#examples)
-    - [Create a Customer](#create-a-customer)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Initialization](#initialization)
+- [API Methods](#api-methods)
+  - [Customers](#customers)
+  - [Cards](#cards)
+  - [Transactions](#transactions)
+- [Error Handling](#error-handling)
+- [Examples](#examples)
+  - [Create a Customer](#create-a-customer)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
 To incorporate the SDK into your project, use npm:
 
 ```bash
-npm install sudoafrica-sdk
+npm install sudo-africa-node
 ```
 
 ## Initialization
@@ -31,7 +30,7 @@ npm install sudoafrica-sdk
 Start by importing the module:
 
 ```javascript
-const SudoAfrica = require('sudoafrica-sdk');
+const SudoAfrica = require('sudo-africa-node');
 ```
 
 Initialize a new instance:
