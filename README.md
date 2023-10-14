@@ -1,4 +1,4 @@
-# sudo-africa-node# SudoAfrica Node SDK ![Version Badge](https://img.shields.io/badge/version-1.0.0-blue.svg)
+SudoAfrica Node SDK ![Version Badge](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
 A comprehensive Node.js SDK tailored for the SudoAfrica API, enabling seamless integration of your backend systems with functionalities such as managing customers, cards, transactions, and more.
 
