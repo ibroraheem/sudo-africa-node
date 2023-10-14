@@ -25,6 +25,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to create customer: ${error.message}`);
         }
     }
@@ -40,6 +41,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to fetch customers: ${error.message}`);
         }
     }
@@ -55,6 +57,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to fetch customer: ${error.message}`);
         }
     }
@@ -71,6 +74,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to update customer: ${error.message}`);
         }
     }
@@ -90,6 +94,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(
                 `Failed to update customer document URL: ${error.message}`
             );
@@ -108,6 +113,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to create funding source: ${error.message}`);
         }
     }
@@ -123,6 +129,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to create funding source: ${error.message}`);
         }
     }
@@ -138,6 +145,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to retrieve funding source: ${error.message}`);
         }
     }
@@ -154,6 +162,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to update funding source: ${error.message}`);
         }
     }
@@ -170,6 +179,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to create card: ${error.message}`);
         }
     }
@@ -185,6 +195,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to fetch cards: ${error.message}`);
         }
     }
@@ -200,6 +211,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to fetch cards for customer: ${error.message}`);
         }
     }
@@ -214,6 +226,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to fetch card`);
         }
     }
@@ -228,6 +241,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to send default card pin`);
         }
     }
@@ -247,6 +261,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to update card PIN: ${error.message}`);
         }
     }
@@ -261,6 +276,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to enroll card in 2FA: ${error.message}`);
         }
     }
@@ -277,6 +293,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to update card: ${error.message}`);
         }
     }
@@ -292,6 +309,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to get card token: ${error.message}`);
         }
     }
@@ -308,6 +326,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to order cards: ${error.message}`);
         }
     }
@@ -323,6 +342,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to fetch card authorizations: ${error.message}`);
         }
     }
@@ -361,6 +381,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(
                 `Failed to fetch authorization by id ${authorizationId}: ${error.message}`
             );
@@ -379,6 +400,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(
                 `Failed to update authorization metadata for id ${authorizationId}: ${error.message}`
             );
@@ -402,6 +424,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to create dispute: ${error.message}`);
         }
     }
@@ -417,6 +440,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to fetch disputes: ${error.message}`);
         }
     }
@@ -433,6 +457,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to update dispute: ${error.message}`);
         }
     }
@@ -448,6 +473,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to list transactions: ${error.message}`);
         }
     }
@@ -463,6 +489,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to get transaction by ID: ${error.message}`);
         }
     }
@@ -480,6 +507,7 @@ class SudoAfrica {
                 return response.data;
             })
             .catch(function (error) {
+                console.log(error);
                 throw new Error(`Failed to fetch card transactions: ${error.message}`);
             });
     }
@@ -496,6 +524,7 @@ class SudoAfrica {
             const response = await axios.request(options);
             return response.data;
         } catch (error) {
+            console.log(error);
             throw new Error(`Failed to update transaction: ${error.message}`);
         }
     }
